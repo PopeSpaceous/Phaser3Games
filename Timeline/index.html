@@ -1,0 +1,154 @@
+<!doctype html> 
+<html lang="en"> 
+    <head> 
+        <meta charset="UTF-8" />
+        <title>Timeline</title>
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="0" />
+        <script src="//cdn.jsdelivr.net/npm/phaser@3.54.0/dist/phaser.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/phaser@3.54.0/dist/phaser.min.js"></script>
+        <script type="text/javascript" src="start.js"></script>
+        <!-- <script type="text/javascript" src="GamePlay.js"></script> -->
+        <style type="text/css">
+            /* body {
+                margin: 0;
+            }
+            #overlay{
+                position: absolute;
+                top: 80px;
+                left: 50px;
+                padding: 2%;
+                width: 1100px;
+                color:rgb(187, 219, 247); 
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 140%;
+                background-color: rgb(70, 66, 66);
+            }
+            .button{
+                background-color: #275296;
+                border-radius: 12px;
+                color: aliceblue;
+                font-size: 20px;
+                padding: 10px 24px;;
+                border-style: solid;
+            }
+            #textList{
+                width: 80%;
+                height: 100px;
+            } */
+
+        </style>
+        <link rel="shortcut icon" href="#">
+        <meta property="og:title" content="Timeline">
+        <!-- <meta property="og:image" content="https://travelingchalkboard.com/games/spelling/assets/logo.png"> -->
+        <meta property="og:description" content="Practice your history by completing a timeline. Use a shareable link to share your created timeline.">
+    </head>
+    <body>
+        <script type="text/javascript">
+            function preload(){
+                this.load.scenePlugin({
+                    key: 'rexuiplugin',
+                    url: 'https://github.com/rexrainbow/phaser3-rex-notes/tree/master/dist/rexuiplugin.min.js',
+                    sceneKey: 'rexUI'
+                })
+                
+                this.load.plugin('rextexteditplugin', 'https://github.com/rexrainbow/phaser3-rex-notes/tree/master/dist/rextexteditplugin.min.js', true)    
+            }
+
+            var config = {
+                type: Phaser.AUTO,
+                scale: {
+                    mode: Phaser.Scale.FIT,
+                    parent: 'phaser-example',
+                    autoCenter: Phaser.Scale.CENTER_BOTH,
+                    width: 1300,
+                    height: 600,
+                    dom: {
+                        createContainer: true,
+                    }
+                },
+                //sets the physics for the game
+                physics:{
+                    default: 'arcade',
+                    arcade: {
+                        gravity: { y: 0 }, 
+                        debug: false
+                    }
+                },
+                scene : [Start]
+                // scene: {
+                //     preload: preload,
+                //     create: create,
+                //     update: update
+                // }
+            };
+
+
+            const game = new Phaser.Game(config);
+            // const queryString = window.location.search;
+            // console.log("Query: "+queryString);
+            // if (queryString){
+            //     console.log("String");
+            //     //const urlParams = new URLSearchParams(queryString);
+            //     var wordList = new URLSearchParams(queryString).getAll('word');
+            //     var descList = new URLSearchParams(queryString).getAll('desc');
+            //     // console.log("WordList: "+wordList[0]);
+            //     // console.log("DescList: "+descList[0]);
+
+            //     var wordList1 = wordList[0].replace(/_/g," ");
+            //     var descList1 = descList[0].replace(/_/g," ");
+            //     var word = wordList1.split(",");
+            //     var descript = descList1.split(",");
+            //     game.scene.start("bootGame", {word: word, descript: descript});
+            // }
+            // else{
+            //     console.log("None");
+            //     //game.scene.start("bootGame");
+            // }
+            // //game.scene.start("bootGame");
+
+            // function loadList(theGame){
+            //     var list = document.getElementById("textList").value;
+            //     //console.log(JSON.stringify(document.getElementById("textList").value));
+            //     if(document.getElementById("textList").value && document.getElementById("textList").value != ""){
+            //         console.log(list);
+            //         //game.list = list;
+            //         theGame.scene.start("bootGame", {list: list});
+            //         overlay();
+            //     }
+            //     else if(!document.getElementById("textList").value){
+            //         console.log("element doesn't exist")
+            //     }
+            //     else if(document.getElementById("textList").value == ""){
+            //         console.log("Text field is empty")
+            //     }
+            //     else{
+            //         console.log("Something went wrong")
+            //     }
+            // }
+
+            // function overlay(){
+            //     var el = document.getElementById("overlay");
+            //     el.style.display = (el.style.display == "none") ? "block" : "none";
+            //     //this.renderTextBox(el);
+            //     window.scrollTo(0, 0);
+            // }
+            
+            
+            
+        </script>
+        <div id="phaser-example" style="z-index: -1;">
+                <!-- <input id="copyText" type="text" style="display: none;">  
+                <div id="overlay" style="display: none; z-index: 2;">            
+                    <span style="font-size: x-large; font-weight: bold;">Please add your spelling list by adding the word, a comma, then the description.</span> &nbsp;&nbsp;&nbsp;&nbsp;<button class="button" style="font-size: x-large;"  onclick="overlay()">&nbsp;x&nbsp;</button> 
+                    <p>E.g.</br> cat, this animal goes meow </br> guitar, this instrument has strings and is used in rock and roll</p>
+                    <form>
+                        <textarea id="textList" rows="4" cols="50" name="comment" placeholder="Start adding words here!" form="usrform"></textarea>
+                    </form>
+                    <input class="button" type="button" onclick="loadList(game)" value="Submit List">
+                </div> -->
+        </div>
+        
+    </body>
+</html>
